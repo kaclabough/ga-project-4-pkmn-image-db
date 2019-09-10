@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>charizard44.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/train/charizard44.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>225</width>
+		<height>225</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>charizard</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>16</xmin>
+			<ymin>2</ymin>
+			<xmax>219</xmax>
+			<ymax>212</ymax>
+		</bndbox>
+	</object>
+</annotation>

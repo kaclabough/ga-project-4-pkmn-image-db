@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>greninja41.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/train/greninja41.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>greninja</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>97</xmin>
+			<ymin>1</ymin>
+			<xmax>1881</xmax>
+			<ymax>1079</ymax>
+		</bndbox>
+	</object>
+</annotation>

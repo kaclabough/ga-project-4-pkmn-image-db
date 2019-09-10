@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>mudkip49.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/train/mudkip49.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1080</width>
+		<height>1242</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>mudkip</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>542</xmin>
+			<ymin>815</ymin>
+			<xmax>806</xmax>
+			<ymax>1163</ymax>
+		</bndbox>
+	</object>
+</annotation>

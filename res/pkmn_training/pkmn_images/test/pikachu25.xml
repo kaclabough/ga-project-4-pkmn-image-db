@@ -1,0 +1,26 @@
+<annotation>
+	<folder>test</folder>
+	<filename>pikachu25.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/test/pikachu25.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>299</width>
+		<height>168</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>pikachu</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>164</xmin>
+			<ymin>19</ymin>
+			<xmax>276</xmax>
+			<ymax>149</ymax>
+		</bndbox>
+	</object>
+</annotation>

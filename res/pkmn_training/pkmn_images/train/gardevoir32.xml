@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>gardevoir32.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/train/gardevoir32.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>450</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gardevoir</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>324</xmin>
+			<ymin>110</ymin>
+			<xmax>416</xmax>
+			<ymax>254</ymax>
+		</bndbox>
+	</object>
+</annotation>

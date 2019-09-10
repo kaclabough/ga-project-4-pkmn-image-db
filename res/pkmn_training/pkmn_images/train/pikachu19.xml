@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>pikachu19.jpg</filename>
+	<path>/home/sirairdude/sei/projects/ga-project-4-pkmn-image-db/res/pkmn_training/pkmn_images/train/pikachu19.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1020</width>
+		<height>576</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>pikachu</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>475</xmin>
+			<ymin>1</ymin>
+			<xmax>1020</xmax>
+			<ymax>548</ymax>
+		</bndbox>
+	</object>
+</annotation>
