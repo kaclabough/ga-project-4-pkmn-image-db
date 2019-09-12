@@ -1,12 +1,3 @@
-"""
-Usage:
-  # From tensorflow/models/
-  # Create train data:
-  python generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
-
-  # Create test data:
-  python generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=test.record
-"""
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
@@ -15,6 +6,8 @@ import os
 import io
 import pandas as pd
 import tensorflow as tf
+import sys
+sys.path.append("../models/research")
 
 from PIL import Image
 from object_detection.utils import dataset_util
@@ -23,13 +16,31 @@ from collections import namedtuple, OrderedDict
 flags = tf.app.flags
 flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
 flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
+# flags.DEFINE_string('label1', '', 'charizard')
+# flags.DEFINE_string('label2', '', 'gardevoir')
+# flags.DEFINE_string('label3', '', 'greninja')
+# flags.DEFINE_string('label4', '', 'mudkip')
+# flags.DEFINE_string('label5', '', 'pikachu')
+flags.DEFINE_string('img_path', '', 'Path to images')
 FLAGS = flags.FLAGS
 
 
 # TO-DO replace this with label map
+# for multiple labels add more else if statements
 def class_text_to_int(row_label):
-    if row_label == 'French Flag':
-        return 1
+    # if row_label == FLAGS.label:  # 'ship':
+    #     return 1
+    # comment upper if statement and uncomment these statements for multiple labelling
+    if row_label == 'charizard':
+      return 1
+    elif row_label == 'gardevoir':
+      return 2
+    elif row_label == 'greninja':
+        return 3
+    elif row_label == 'mudkip':
+        return 4
+    elif row_label == 'pikachu':
+        return 5
     else:
         None
 
@@ -49,6 +60,7 @@ def create_tf_example(group, path):
 
     filename = group.filename.encode('utf8')
     image_format = b'jpg'
+    # check if the image format is matching with your images.
     xmins = []
     xmaxs = []
     ymins = []
@@ -82,8 +94,8 @@ def create_tf_example(group, path):
 
 
 def main(_):
-    writer = tf.python_io.TFRecordWriter('/home/kyle/Coding/object_detection/test.record')
-    path = os.path.join(os.getcwd(), 'FRENCH_FLAG')
+    writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
+    path = os.path.join(os.getcwd(), FLAGS.img_path)
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')
     for group in grouped:
