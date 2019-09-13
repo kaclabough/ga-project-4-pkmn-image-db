@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "../Image/Image";
-import "../Home/Home";
+import { Link, Route } from "react-router-dom";
+import Image from "../Image/Image";
+import Home from "../Home/Home";
 import "./App.css";
 
 class App extends Component {

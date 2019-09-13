@@ -23,6 +23,7 @@ class Image extends Component {
 
     const predictions = model.predict(tf.browser.fromPixels(image));
 
+    const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     const font = "16px sans-serif";

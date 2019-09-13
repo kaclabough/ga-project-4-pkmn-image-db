@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
@@ -7,7 +8,7 @@ class Home extends Component {
         <div className="pokeball-top">
           <h1 className="title">Who's That Pokemon?</h1>
         </div>
-        <button className="Open" />;
+        <Link to="/images" />
         <div className="pokeball-bottom" />
       </div>
     );
