@@ -4,11 +4,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className="title">Who's That Pokemon?</h1>
-        <div className="pokeball-top" />
+        <div className="pokeball-top">
+          <h1 className="title">Who's That Pokemon?</h1>
+        </div>
         <button className="Open" />;
         <div className="pokeball-bottom" />
       </div>
     );
   }
 }
+
+export default Home;
