@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "pokemon_solidnormal";
+  src: url("../../fonts/pkmn_solid_font/pokemon_solid-webfont.woff2")
+      format("woff2"),
+    url("../../fonts/pkmn_solid_font/pokemon_solid-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.title {
+  font-family: "pokemon_solidnormal";
+  color: yellow;
+  text-shadow: 5px 0 blue;
+}
