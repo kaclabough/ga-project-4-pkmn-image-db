@@ -10,4 +10,48 @@
   font-family: "pokemon_solidnormal";
   color: yellow;
   text-shadow: 5px 0 blue;
+  line-height: 250px;
+}
+.pokeball {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  grid-template-columns: 200px 50px 50px 200px;
+  grid-template-rows: 200px 50px 50px 200px;
+}
+
+.pokeball-bottom {
+  background-color: white;
+  width: 500px;
+  height: 250px;
+  border: black thin solid;
+  grid-row: 3;
+  grid-column: 1;
+  border-radius: 0 0 250px 250px;
+  z-index: 1;
+}
+
+.pokeball-top {
+  background-color: red;
+  width: 500px;
+  height: 250px;
+  border: black thin solid;
+  border-radius: 250px 250px 0px 0;
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 1;
+}
+
+.pokeball-button {
+  background-color: grey;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  border: lightgrey 10px solid;
+}
+
+.pokeball-link {
+  grid-row: 2;
+  grid-column: 2;
+  z-index: 2;
 }

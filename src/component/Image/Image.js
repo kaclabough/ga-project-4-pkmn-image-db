@@ -110,7 +110,7 @@ class Image extends Component {
   renderPredictions = async () => {
     const t4d = this.createTensor();
     const model = await tf.loadGraphModel(
-      "http://127.0.0.1:8080/tfjs_pokemon_model_pp/model.json"
+      "https://raw.githubusercontent.com/SirAirdude/ga-project-4-pkmn-image-db/master/res/pkmn_training/tfjs_pokemon_saved_model_pp/model.json"
     );
 
     const result = await model.executeAsync(t4d);
