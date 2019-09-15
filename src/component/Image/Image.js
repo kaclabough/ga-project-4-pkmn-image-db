@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import * as tf from "@tensorflow/tfjs";
-
+import "./Image.css";
 class Image extends Component {
   constructor() {
     super();
     this.state = {
       image_url: ""
     };
-    const classNames = [
-      "Charizard",
-      "Gardevoir",
-      "Greninja",
-      "Mudkip",
-      "Pikachu"
-    ];
   }
 
   canvasRef = React.createRef();
@@ -49,6 +42,13 @@ class Image extends Component {
   }
 
   createDetections(boxes, classes, indexes, scores) {
+    const classNames = [
+      "Charizard",
+      "Gardevoir",
+      "Greninja",
+      "Mudkip",
+      "Pikachu"
+    ];
     const width = 600;
     const height = 500;
     const count = indexes.length;
@@ -63,13 +63,29 @@ class Image extends Component {
       const minX = bbox[1] * width;
       const maxY = bbox[2] * height;
       const maxX = bbox[3] * width;
-      bbox[0] = minX;
-      bbox[1] = minY;
-      bbox[2] = maxX - minX;
-      bbox[3] = maxY - minY;
+      if (minX > 0) {
+        bbox[0] = minX;
+      } else {
+        bbox[0] = 0;
+      }
+      if (minY > 0) {
+        bbox[1] = minY;
+      } else {
+        bbox[1] = 0;
+      }
+      if (maxX < width) {
+        bbox[2] = maxX - bbox[0];
+      } else {
+        bbox[2] = width - bbox[0];
+      }
+      if (maxY < height) {
+        bbox[3] = maxY - bbox[1];
+      } else {
+        bbox[3] = height - bbox[1];
+      }
       let prediction = {
         bbox: bbox,
-        class: this.classNames[classes[indexes[i]]],
+        class: classNames[classes[indexes[i]]],
         score: scores[indexes[i]]
       };
       predictions.push(prediction);
@@ -84,6 +100,10 @@ class Image extends Component {
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
+    if (predictions.length === 0) {
+      ctx.fillStyle = "#ff0000";
+      ctx.fillText("Nothing detected", 0, 0);
+    }
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
@@ -94,10 +114,10 @@ class Image extends Component {
       ctx.lineWidth = 4;
       ctx.strokeRect(x, y, width, height);
 
-      ctx.fillStyle = "#FFFFFF";
+      ctx.fillStyle = "#FF0000";
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10);
-      ctx.fillREct(x, y, textWidth + 4, textHeight + 4);
+      ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
     });
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];

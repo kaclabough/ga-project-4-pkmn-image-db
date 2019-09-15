@@ -9,7 +9,7 @@ class Home extends Component {
         <div className="pokeball-top">
           <h1 className="title">Who's That Pokemon?</h1>
         </div>
-        <Link className="pokeball-link" to="/images">
+        <Link className="pokeball-link" to="/detect">
           <button className="pokeball-button" />
         </Link>
         <div className="pokeball-bottom" />
