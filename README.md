@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Whos that Pokemon?
 
-## Available Scripts
+This website uses a object detection model trained on tensorflow to identify one of five pokemon in images.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+Run `git clone` and `npm install` to install the app. Run `npm run` to start the webpage on localhost.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installing
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+for training a new model:
 
-### `npm test`
+follow instructions [here](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html#tf-install) to install tenosrflow using verison 1.12 of tensorflow instead of 1.9.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+follow [these](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html) inside of the Tensorflow directory to train a custom model.
 
-### `npm run build`
+once the model is trained run
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+tensorflowjs_converter --input_format=tf_saved_model \
+ --output_node_names='Postprocessor/ExpandDims_1,Postprocessor/Slice' \
+ --output_json=true
+--saved_model_tags=serve \
+ ./saved_model \
+ ./web_model
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+where saved model is the train model .pb file, and web_model is the output directory for the .json file and associated weights
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+load the model by uploading to github and copying the address to the raw file on git hub and pasting it in the model url.
 
-### `npm run eject`
+## Running the tests
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+paste an image url into the text if the image is displays, hit run and the app will process the image and display bounding box and label for the positive detections
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+hosted on surge [here](http://whosthatpokemon.surge.sh/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+- [tensorflow](https://www.tensorflow.org) - Machine Learning and Neural Network Library in Python used for training
+- [tensorflowjs](https://www.tensorflow.org/js/) - ML and NN library for javascript
+- [surge](https://surge.sh/) - Deployment platform
+- [node.js](https://nodejs.org/en/) - package manager
+- [anaconda](https://www.anaconda.com/distribution/)python machine learning package manager and virtual environment manager
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Kyle Clabough** - _Initial work_ - [SirAirdude](https://github.com/SirAirdude)
 
-### Code Splitting
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## License
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Pokemon is property of Nintendo, Gamefreak, and The Pokemon Company International
